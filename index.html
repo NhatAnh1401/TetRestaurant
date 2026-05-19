@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<!--
+=======================================================
+  TẾT RESTAURANT — Promotional / Referral Website
+  29 Lan Ong, Hanoi Old Quarter
+  Official Restaurant Hotline: +84 964 375 588
+  Referral Agent (Nhật Anh): +84 33 909 6764
+=======================================================
+
+HOW TO HOST FOR FREE:
+─────────────────────
+OPTION A — Netlify (easiest, 60 seconds):
+  1. Sign up free at https://netlify.com
+  2. Drag & drop this index.html file onto the Netlify dashboard
+  3. Your site is live at e.g. my-tet-restaurant.netlify.app
+  4. Rename under Site Settings → Site name
+
+OPTION B — GitHub Pages:
+  1. Create free repo at https://github.com
+  2. Upload this file as index.html
+  3. Settings → Pages → Source: main branch
+  4. Live at: https://yourusername.github.io/repo-name
+
+PRICES NOTE: Replace all VND numbers with your real menu prices.
+  Search "VND" to find every entry quickly.
+=======================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tết Restaurant – Vietnamese Cuisine &amp; Vegetarian Food | 29 Lan Ong, Hanoi</title>
+  <meta name="description" content="Tết Restaurant in Hanoi Old Quarter. Authentic Vietnamese cuisine and vegetarian food at 29 Lan Ong. Open 8AM–11PM daily. Reserve: +84 964 375 588.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold:#C8963E;--gold-dk:#A0732A;--gold-lt:#F5E6C8;--saffron:#E8A020;
+      --red:#B5341A;--brown:#3D2008;--tan:#7A5C3A;--cream:#FBF6EE;
+      --white:#FFFFFF;--card:#FFFDF8;--border:#E8D9BE;
+      --ink:#1E1208;--soft:#5A3E26;--muted:#9A7E62;
+      --ff-d:'Cormorant Garamond',Georgia,serif;
+      --ff-b:'Nunito',sans-serif;
+      --r:12px;--rl:20px;
+      --sh:0 4px 24px rgba(61,32,8,.10);
+      --shl:0 12px 48px rgba(61,32,8,.16);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--ff-b);background:var(--cream);color:var(--ink);line-height:1.7;font-size:16px}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 24px}
+    .section{padding:96px 0}
+    .section-alt{background:var(--white)}
+    .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+    .title{font-family:var(--ff-d);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.15;color:var(--ink)}
+    .subtitle{font-size:1.05rem;color:var(--soft);max-width:560px;margin-top:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:50px;font-family:var(--ff-b);font-size:.93rem;font-weight:700;cursor:pointer;border:none;transition:transform .18s,box-shadow .18s,background .18s}
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shl)}
+    .btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:var(--gold-dk)}
+    .btn-red{background:var(--red);color:#fff}
+    .btn-wa{background:#25D366;color:#fff}.btn-wa:hover{background:#1cb254}
+    .btn-out{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+    .btn-out:hover{background:rgba(255,255,255,.12);border-color:#fff}
+
+    /* ── NAV ── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(251,246,238,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:66px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .3s}
+    .nl{font-family:var(--ff-d);font-size:1.3rem;font-weight:700;color:var(--brown);display:flex;align-items:center;gap:10px}
+    .nl img{width:38px;height:38px;border-radius:8px;object-fit:cover}
+    .nl em{color:var(--gold);font-style:italic}
+    .nlinks{display:flex;gap:28px}
+    .nlinks a{font-size:.87rem;font-weight:600;color:var(--soft);transition:color .15s}
+    .nlinks a:hover{color:var(--gold)}
+    .nr{display:flex;align-items:center;gap:10px}
+    #nt{display:none;background:none;border:none;cursor:pointer;padding:4px}
+    #nt span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px}
+    #mn{display:none;flex-direction:column;position:fixed;top:66px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border);z-index:998;padding:8px 24px 20px;box-shadow:var(--shl)}
+    #mn.open{display:flex}
+    #mn a{padding:13px 0;border-bottom:1px solid var(--border);font-weight:600;color:var(--ink)}
+
+    /* ── HERO ── */
+    #hero{min-height:100vh;display:flex;align-items:center;position:relative;padding-top:66px;overflow:hidden}
+    .hbg{position:absolute;inset:0;z-index:0;background:url('https://tetrestaurants.com/wp-content/uploads/2024/11/tet-restaurant-768x1024.jpg') center/cover no-repeat}
+    .hbg::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(30,12,4,.82) 0%,rgba(30,12,4,.56) 55%,rgba(30,12,4,.22) 100%)}
+    .hi{position:relative;z-index:1;padding:80px 24px 120px;max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .htag{display:inline-flex;align-items:center;gap:8px;background:rgba(200,150,62,.18);border:1px solid rgba(200,150,62,.4);color:var(--saffron);font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:24px}
+    .htitle{font-family:var(--ff-d);font-size:clamp(3rem,7vw,5.5rem);font-weight:700;line-height:1.08;color:#fff;margin-bottom:20px}
+    .htitle em{color:var(--saffron);font-style:italic}
+    .hdesc{font-size:1.1rem;color:rgba(255,255,255,.80);max-width:440px;margin-bottom:36px}
+    .hact{display:flex;flex-wrap:wrap;gap:12px}
+    .hstats{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-self:end}
+    .hstat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);backdrop-filter:blur(8px);border-radius:var(--r);padding:20px 22px;color:#fff}
+    .hstat .n{font-family:var(--ff-d);font-size:2.2rem;font-weight:700;color:var(--saffron);line-height:1;display:block}
+    .hstat .l{font-size:.84rem;color:rgba(255,255,255,.68);margin-top:4px}
+    .hscroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.42);font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;animation:bob 2.2s ease-in-out infinite}
+    @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
+
+    /* ── ABOUT ── */
+    .agrid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .aphotos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:220px 200px;gap:12px}
+    .aphoto{border-radius:var(--r);overflow:hidden;box-shadow:var(--sh)}
+    .aphoto:first-child{grid-column:1/3;height:230px}
+    .atext p{color:var(--soft);margin-top:16px}
+    .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .pill{display:flex;align-items:center;gap:7px;padding:8px 16px;border-radius:50px;background:var(--gold-lt);color:var(--gold-dk);font-size:.84rem;font-weight:700;border:1px solid rgba(200,150,62,.3)}
+
+    /* ── MENU ── */
+    .mcats{display:flex;gap:8px;flex-wrap:wrap;margin:32px 0 28px}
+    .cbn{padding:8px 20px;border-radius:50px;border:2px solid var(--border);background:transparent;font-family:var(--ff-b);font-size:.87rem;font-weight:700;color:var(--soft);cursor:pointer;transition:all .18s}
+    .cbn.active,.cbn:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+    .mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+    .mc{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:transform .2s,box-shadow .2s}
+    .mc:hover{transform:translateY(-4px);box-shadow:var(--shl)}
+    .mci{height:185px;position:relative;overflow:hidden}
+    .mci img{transition:transform .4s}
+    .mc:hover .mci img{transform:scale(1.06)}
+    .mcb{padding:18px 20px 20px}
+    .mcb .vn{font-size:.8rem;color:var(--muted);font-style:italic;margin-bottom:4px}
+    .mcb h3{font-family:var(--ff-d);font-size:1.15rem;font-weight:700;margin-bottom:6px}
+    .mcb p{font-size:.86rem;color:var(--soft);line-height:1.55}
+    .mcf{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px dashed var(--border)}
+    .price{font-weight:700;color:var(--red);font-size:.93rem}
+    .badge{font-size:.71rem;font-weight:700;background:var(--gold-lt);color:var(--gold-dk);padding:3px 10px;border-radius:50px}
+    .bveg{background:#E8F5E9;color:#2E7D32}
+
+    /* ── GALLERY ── */
+    .ggrid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:10px;margin-top:40px}
+    .gi{border-radius:var(--r);overflow:hidden;cursor:pointer}
+    .gi img{transition:transform .4s}
+    .gi:hover img{transform:scale(1.08)}
+    .gi:nth-child(1){grid-column:1/3;grid-row:1/2}
+    .gi:nth-child(2){grid-column:3/4;grid-row:1/2}
+    .gi:nth-child(3){grid-column:4/5;grid-row:1/3}
+    .gi:nth-child(4){grid-column:1/2;grid-row:2/3}
+    .gi:nth-child(5){grid-column:2/4;grid-row:2/3}
+
+    /* ── REVIEWS ── */
+    .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:40px}
+    .rc{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:24px;position:relative;transition:transform .2s,box-shadow .2s}
+    .rc:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+    .rc::before{content:'"';position:absolute;top:12px;right:18px;font-family:var(--ff-d);font-size:4.5rem;color:var(--gold-lt);line-height:1;pointer-events:none}
+    .stars{color:#F1C40F;font-size:.95rem;letter-spacing:2px;margin-bottom:10px}
+    .rt{font-size:.89rem;color:var(--soft);line-height:1.65}
+    .rvr{margin-top:16px;display:flex;align-items:center;gap:10px}
+    .rva{width:38px;height:38px;border-radius:50%;background:var(--gold-lt);color:var(--gold-dk);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.88rem;flex-shrink:0}
+    .rvn{font-weight:700;font-size:.88rem}
+    .rvl{font-size:.75rem;color:var(--muted)}
+    .ml{display:inline-block;margin-top:8px;font-size:.78rem;color:var(--gold);font-weight:600}
+
+    /* ── REFERRAL ── */
+    .rbox{background:linear-gradient(135deg,var(--brown) 0%,#5C2E0E 100%);border-radius:var(--rl);padding:56px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;color:#fff;position:relative;overflow:hidden}
+    .rbox::before{content:'🏮';position:absolute;right:-10px;top:-20px;font-size:12rem;opacity:.05;pointer-events:none}
+    .rbox .title{color:#fff}
+    .rbox .subtitle{color:rgba(255,255,255,.75);max-width:none}
+    .acard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:18px;margin-top:24px;display:flex;gap:14px;align-items:center}
+    .aav{width:50px;height:50px;border-radius:50%;background:var(--gold-lt);color:var(--gold-dk);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem;flex-shrink:0}
+    .an{font-weight:700;font-size:1rem}
+    .al{font-size:.8rem;color:rgba(255,255,255,.6)}
+    .rsteps{display:flex;flex-direction:column;gap:16px}
+    .rs{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:14px 16px}
+    .rn{width:32px;height:32px;background:var(--gold);color:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.84rem;flex-shrink:0}
+    .rs h4{font-size:.9rem;font-weight:700;margin-bottom:2px}
+    .rs p{font-size:.82rem;opacity:.72}
+
+    /* ── CONTACT ── */
+    .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px}
+    .ccard{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:32px}
+    .ccard h3{font-family:var(--ff-d);font-size:1.35rem;font-weight:700;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+    .clinks{display:flex;flex-direction:column;gap:11px}
+    .cl{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:var(--r);background:var(--cream);border:1px solid var(--border);transition:all .18s;color:var(--ink)}
+    .cl:hover{border-color:var(--gold);background:#fff;transform:translateX(4px)}
+    .ci{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .cwa{background:#d4f7e5}.cph{background:#fff0d4}.cfb{background:#dce8ff}.cmap{background:#ffe8d4}
+    .cl strong{display:block;font-size:.9rem;font-weight:700}
+    .cl span{font-size:.79rem;color:var(--muted)}
+    .mbw{height:280px;border-radius:var(--rl);background:linear-gradient(135deg,var(--gold-lt),#FDE8B0);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+    .mbw p{font-size:.9rem;color:var(--soft);text-align:center;padding:0 20px}
+    .htbl{width:100%;font-size:.86rem;color:var(--soft);border-collapse:collapse}
+    .htbl td{padding:5px 0}
+    .htbl td:last-child{text-align:right;font-weight:700;color:var(--ink)}
+    .cform{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+    .cform input,.cform textarea{width:100%;padding:11px 15px;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--ff-b);font-size:.9rem;background:#fff;color:var(--ink);transition:border-color .18s;outline:none}
+    .cform input:focus,.cform textarea:focus{border-color:var(--gold)}
+    .cform textarea{min-height:90px;resize:vertical}
+
+    /* ── FOOTER ── */
+    footer{background:var(--brown);color:rgba(255,255,255,.6);padding:52px 24px 32px;text-align:center}
+    .flogo{font-family:var(--ff-d);font-size:1.8rem;font-weight:700;color:#fff;margin-bottom:6px}
+    .flogo em{color:var(--saffron);font-style:italic}
+    .ftag{font-size:.88rem;margin-bottom:28px}
+    .fsocs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+    .fsoc{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:50px;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.75);font-size:.82rem;font-weight:600;transition:all .18s}
+    .fsoc:hover{background:rgba(255,255,255,.12);color:#fff}
+    .fdiv{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px auto;max-width:360px}
+    .fcopy{font-size:.77rem}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .nlinks{display:none}#nt{display:block}
+      .hi{grid-template-columns:1fr}.hstats{display:none}
+      .htitle{font-size:2.8rem}
+      .agrid{grid-template-columns:1fr}
+      .rbox{grid-template-columns:1fr;padding:36px 24px}
+      .cgrid{grid-template-columns:1fr}
+      .ggrid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .gi{grid-column:auto!important;grid-row:auto!important;height:170px}
+    }
+    @media(max-width:520px){
+      .section{padding:60px 0}
+      .ggrid{grid-template-columns:1fr}
+      .gi{height:220px}
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .rv{opacity:0;transform:translateY(26px);transition:opacity .55s ease,transform .55s ease}
+    .rv.vis{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav">
+  <div class="nl">
+    <img src="https://tetrestaurants.com/wp-content/uploads/2024/11/tet-restaurant-768x1024.jpg" alt="Tết Restaurant">
+    <span><em>Tết</em> Restaurant</span>
+  </div>
+  <ul class="nlinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nr">
+    <a href="tel:+84964375588" class="btn btn-gold" style="padding:10px 18px;font-size:.83rem;">📞 +84 964 375 588</a>
+    <button id="nt" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<nav id="mn">
+  <a href="#about"    onclick="cn()">About</a>
+  <a href="#menu"     onclick="cn()">Menu</a>
+  <a href="#gallery"  onclick="cn()">Gallery</a>
+  <a href="#reviews"  onclick="cn()">Reviews</a>
+  <a href="#referral" onclick="cn()">Book via Nhật Anh</a>
+  <a href="#contact"  onclick="cn()">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbg"></div>
+  <div class="hi container">
+    <div>
+      <div class="htag">📍 29 Lan Ong · Hanoi Old Quarter</div>
+      <h1 class="htitle">Authentic<br>Vietnamese<br><em>&amp; Vegetarian</em></h1>
+      <p class="hdesc">Experience the heart of Hanoi's culinary soul — slow-simmered phở, crispy nem rán, and lovingly crafted vegetarian dishes in a warm, lantern-lit Old Quarter setting.</p>
+      <div class="hact">
+        <a href="https://api.whatsapp.com/send?phone=84964375588&text=Hello%2C%20I%20would%20like%20to%20reserve%20a%20table%20at%20Tet%20Restaurant." target="_blank" class="btn btn-wa">📲 Reserve a Table</a>
+        <a href="#menu" class="btn btn-out">View Menu</a>
+      </div>
+    </div>
+    <div class="hstats">
+      <div class="hstat"><span class="n">⭐ 4.8</span><div class="l">Google Rating</div></div>
+      <div class="hstat"><span class="n">08–23</span><div class="l">Open Every Day</div></div>
+      <div class="hstat"><span class="n">🌿</span><div class="l">Vegetarian Friendly</div></div>
+      <div class="hstat"><span class="n">🇻🇳</span><div class="l">Authentic Northern Recipes</div></div>
+    </div>
+  </div>
+  <div class="hscroll">↓ &nbsp;Scroll to explore</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section section-alt">
+  <div class="container">
+    <div class="agrid">
+      <div class="aphotos rv">
+        <!-- Real photos from tetrestaurants.com official website -->
+        <div class="aphoto">
+          <img src="https://tetrestaurants.com/wp-content/uploads/2024/12/DSC00828-1024x638.jpg" alt="Tết Restaurant interior" loading="lazy">
+        </div>
+        <div class="aphoto">
+          <img src="https://tetrestaurants.com/wp-content/uploads/2024/12/DSC00501-1-1024x683.jpg" alt="Tết Restaurant dining room" loading="lazy">
+        </div>
+        <div class="aphoto">
+          <img src="https://tetrestaurants.com/wp-content/uploads/2024/12/DSC00643-682x1024.jpg" alt="Tết Restaurant food" loading="lazy">
+        </div>
+      </div>
+      <div class="atext rv" style="transition-delay:.1s">
+        <div class="tag">✦ Our Story</div>
+        <h2 class="title">A Taste of Vietnam in the Heart of Hanoi's Old Quarter</h2>
+        <p>Located at <strong>29 Lan Ong</strong>, Tết Restaurant is celebrated for its rich, authentic Vietnamese flavours and a warm atmosphere that feels like home. Our name honours Vietnam's most cherished festival — a season of family, warmth, and the finest food.</p>
+        <p>Whether you're craving a bowl of slow-simmered Northern phở, savoury bánh xèo, or our popular vegetarian options, every dish is made with fresh, market-sourced ingredients and generations of culinary heritage.</p>
+        <div class="pills">
+          <div class="pill">🍜 Vietnamese Cuisine</div>
+          <div class="pill">🌿 Vegetarian Options</div>
+          <div class="pill">🏮 Old Quarter Location</div>
+          <div class="pill">🌏 English-speaking Staff</div>
+          <div class="pill">🕗 Open 8 AM – 11 PM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="section">
+  <div class="container">
+    <div class="rv">
+      <div class="tag">✦ Our Menu</div>
+      <h2 class="title">Signature Dishes</h2>
+      <p class="subtitle">Northern Vietnamese classics and vegetarian favourites. <em><!-- Replace VND prices below with your real menu prices --></em></p>
+    </div>
+    <div class="mcats">
+      <button class="cbn active" data-c="all">All</button>
+      <button class="cbn" data-c="noodles">Noodle Soups</button>
+      <button class="cbn" data-c="rolls">Spring Rolls</button>
+      <button class="cbn" data-c="mains">Mains</button>
+      <button class="cbn" data-c="veg">Vegetarian</button>
+    </div>
+    <div class="mgrid" id="mgrid">
+
+      <!-- NOODLE SOUPS -->
+      <div class="mc" data-c="noodles">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/Hanoi-Pho-Bo-320x320.jpg" alt="Phở Bò Hà Nội" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Phở Bò Hà Nội</div>
+          <h3>Hanoi Beef Noodle Soup</h3>
+          <p>Classic Northern phở — clear bone broth simmered all day, silky rice noodles, rare beef, and fragrant herbs.</p>
+          <div class="mcf"><span class="price">85,000 – 95,000 VND</span><span class="badge">⭐ Signature</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="noodles">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/pho-ga-hanoi-320x320.jpg" alt="Phở Gà Hà Nội" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Phở Gà Hà Nội</div>
+          <h3>Hanoi Chicken Noodle Soup</h3>
+          <p>Delicate golden broth with tender chicken, rice noodles, ginger, and fresh green onion.</p>
+          <div class="mcf"><span class="price">80,000 – 90,000 VND</span><span class="badge">Popular</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="noodles">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/BunChaHanoi-320x320.jpg" alt="Bún Chả Hà Nội" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Bún Chả Hà Nội</div>
+          <h3>Hanoi Grilled Pork &amp; Noodles</h3>
+          <p>Charcoal-grilled pork patties in a sweet-sour dipping broth with cold vermicelli and fresh herbs.</p>
+          <div class="mcf"><span class="price">85,000 VND</span><span class="badge">🔥 Must-try</span></div>
+        </div>
+      </div>
+
+      <!-- SPRING ROLLS -->
+      <div class="mc" data-c="rolls">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/nem-ran-hanoi-320x320.jpg" alt="Nem Rán Hà Nội" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Nem Rán Hà Nội</div>
+          <h3>Hanoi Fried Spring Rolls</h3>
+          <p>Crispy golden rolls packed with minced pork, mushroom, and glass noodles. Irresistibly crunchy.</p>
+          <div class="mcf"><span class="price">65,000 VND (4 pcs)</span><span class="badge">Fan fav</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="rolls">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/goi-cuon-tom-va-thit-320x320.jpg" alt="Gỏi Cuốn Tôm Thịt" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Gỏi Cuốn Tôm Thịt</div>
+          <h3>Shrimp &amp; Pork Fresh Spring Rolls</h3>
+          <p>Translucent rice-paper rolls with shrimp, pork, vermicelli, and herbs. Served with hoisin-peanut dip.</p>
+          <div class="mcf"><span class="price">65,000 VND (2 pcs)</span><span class="badge">🥗 Fresh</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="rolls">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/nem-lui-320x320.jpg" alt="Nem Lụi Huế" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Nem Lụi Huế</div>
+          <h3>Grilled Pork on Lemongrass Skewers</h3>
+          <p>Ground pork grilled on lemongrass skewers over charcoal. Served with rice paper and peanut sauce.</p>
+          <div class="mcf"><span class="price">85,000 VND</span><span class="badge">🌿 Huế origin</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="rolls">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/pho-rolls-01-320x320.jpg" alt="Phở Cuốn Hà Nội" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Phở Cuốn Hà Nội</div>
+          <h3>Hanoi Pho Rolls</h3>
+          <p>Soft pho noodle sheets wrapped around beef and herbs — a lighter, cooler take on classic phở.</p>
+          <div class="mcf"><span class="price">80,000 VND</span><span class="badge">Unique</span></div>
+        </div>
+      </div>
+
+      <!-- MAINS -->
+      <div class="mc" data-c="mains">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/banh-mi-sot-vang-ha-noi-320x320.webp" alt="Bánh Mì Sốt Vang" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Bánh Mì Sốt Vang</div>
+          <h3>Red Wine Sauce Beef Bread</h3>
+          <p>Tender braised beef in rich tomato-red wine sauce, served with a crusty French baguette.</p>
+          <div class="mcf"><span class="price">90,000 VND</span><span class="badge">🍷 Hanoi classic</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="mains">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/vietnamese-pancake-768x512.jpg" alt="Bánh Xèo" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Bánh Xèo</div>
+          <h3>Vietnamese Sizzling Pancake</h3>
+          <p>Crispy turmeric crepe filled with shrimp, pork, bean sprouts, and spring onion. Wrap in lettuce and dip.</p>
+          <div class="mcf"><span class="price">85,000 VND</span><span class="badge">⚡ Sizzling</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="mains">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/R02461_Grilled_Beef_in_Betel_Leaf-3-619x412-1.jpg" alt="Bò Lá Lốt" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Bò Lá Lốt</div>
+          <h3>Grilled Beef in Betel Leaves</h3>
+          <p>Aromatic, juicy beef parcels grilled to perfection. Served with rice paper, herbs, and pineapple anchovy dip.</p>
+          <div class="mcf"><span class="price">90,000 VND</span><span class="badge">🍃 Aromatic</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="mains">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/Hanoi-traditional-grill-fish.jpg" alt="Chả Cá Hà Nội" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Chả Cá Hà Nội</div>
+          <h3>Hanoi Traditional Grilled Fish</h3>
+          <p>Turmeric-marinated fish pan-fried at the table with dill and green onion. A true Hanoian icon.</p>
+          <div class="mcf"><span class="price">120,000 VND</span><span class="badge">🐟 Hanoian icon</span></div>
+        </div>
+      </div>
+
+      <!-- VEGETARIAN -->
+      <div class="mc" data-c="veg">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/bun-da-mai-600x477-1.jpg" alt="Bún Chay" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Bún Chay</div>
+          <h3>Vegetarian Noodle Salad</h3>
+          <p>Cold rice vermicelli with tofu, fresh vegetables, herbs, and a zesty nuoc cham dressing.</p>
+          <div class="mcf"><span class="price">70,000 VND</span><span class="badge bveg">🌱 Vegetarian</span></div>
+        </div>
+      </div>
+
+      <div class="mc" data-c="veg">
+        <div class="mci"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/Shrimp-Summer-Rolls-768x509.jpg" alt="Gỏi Cuốn Chay" loading="lazy"></div>
+        <div class="mcb">
+          <div class="vn">Gỏi Cuốn Chay</div>
+          <h3>Vegetarian Summer Rolls</h3>
+          <p>Rice-paper rolls with tofu, avocado, cucumber, vermicelli, and fresh herbs. Light and vibrant.</p>
+          <div class="mcf"><span class="price">60,000 VND (2 pcs)</span><span class="badge bveg">🌱 Vegetarian</span></div>
+        </div>
+      </div>
+
+    </div><!-- /mgrid -->
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section section-alt">
+  <div class="container">
+    <div class="rv">
+      <div class="tag">✦ Food &amp; Ambience</div>
+      <h2 class="title">Inside Tết Restaurant</h2>
+      <p class="subtitle">Our dishes, our space, and the people who make it home.</p>
+    </div>
+    <!-- All gallery images from the official Tet Restaurant website -->
+    <div class="ggrid rv" style="transition-delay:.1s">
+      <div class="gi"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/DSC00848-1-1024x683.jpg" alt="Tết Restaurant interior" loading="lazy"></div>
+      <div class="gi"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/DSC00895-1024x683.jpg" alt="Tết Restaurant dishes" loading="lazy"></div>
+      <div class="gi"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/DSC00861-682x1024.jpg" alt="Tết Restaurant ambience" loading="lazy"></div>
+      <div class="gi"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/DSC00765-682x1024.jpg" alt="Tết Restaurant atmosphere" loading="lazy"></div>
+      <div class="gi"><img src="https://tetrestaurants.com/wp-content/uploads/2024/12/DSC00810-1024x636.jpg" alt="Tết Restaurant dining" loading="lazy"></div>
+    </div>
+    <div style="text-align:center;margin-top:28px;">
+      <a href="https://maps.app.goo.gl/KT3t5w8QtZJRHMMw7" target="_blank" class="btn btn-gold">📸 More Photos on Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS — real reviews from Google Maps via tetrestaurants.com -->
+<section id="reviews" class="section">
+  <div class="container">
+    <div class="rv">
+      <div class="tag">✦ Testimonials</div>
+      <h2 class="title">What Our Guests Say</h2>
+      <p class="subtitle">Verified reviews from real visitors on Google Maps.</p>
+    </div>
+    <div class="rgrid">
+
+      <div class="rc rv">
+        <div class="stars">★★★★★</div>
+        <p class="rt">Absolutely loved our dining experience here! The service was 10/10 and the location was super convenient. The Vietnamese pancake and Hanoi Fried Spring Rolls were fresh and packed with flavour.</p>
+        <div class="rvr"><div class="rva">P</div><div><div class="rvn">Prin Nadi</div><div class="rvl">Google Review</div></div></div>
+        <a class="ml" href="https://maps.app.goo.gl/cgFcDDb273muFcDt5" target="_blank">Read full review →</a>
+      </div>
+
+      <div class="rc rv" style="transition-delay:.07s">
+        <div class="stars">★★★★★</div>
+        <p class="rt">Anh is a wonderful host! The service is attentive and warm, the food beautifully prepared with attention to detail, the decor is gorgeous — great wine list too. Such a great find in Hanoi's Old Quarter.</p>
+        <div class="rvr"><div class="rva">K</div><div><div class="rvn">Karen Elliff</div><div class="rvl">Google Review</div></div></div>
+        <a class="ml" href="https://maps.app.goo.gl/RoCKFhHv9hSqJsUJ6" target="_blank">Read full review →</a>
+      </div>
+
+      <div class="rc rv" style="transition-delay:.14s">
+        <div class="stars">★★★★★</div>
+        <p class="rt">Highly recommend! Delicious food and very friendly, attentive staff. We sat upstairs by the window with a lovely breeze. Luong walked us through rolling rice paper rolls. The Bánh Xèo was incredible!</p>
+        <div class="rvr"><div class="rva">S</div><div><div class="rvn">Sophie Evans</div><div class="rvl">Google Review</div></div></div>
+        <a class="ml" href="https://maps.app.goo.gl/re42jGdVmrrjgRoo8" target="_blank">Read full review →</a>
+      </div>
+
+      <div class="rc rv" style="transition-delay:.21s">
+        <div class="stars">★★★★★</div>
+        <p class="rt">We had dinner after 10 PM — the server spoke English and was very accommodating. Every dish we ordered was absolutely delicious. Will definitely return!</p>
+        <div class="rvr"><div class="rva">E</div><div><div class="rvn">Elyn Magtuba</div><div class="rvl">Google Review</div></div></div>
+        <a class="ml" href="https://maps.app.goo.gl/3YNW47Yfm5rPTgov7" target="_blank">Read full review →</a>
+      </div>
+
+      <div class="rc rv" style="transition-delay:.28s">
+        <div class="stars">★★★★★</div>
+        <p class="rt">Great care of every detail. The vegetarian pho soup and fried tofu with tomato were exquisite — really! The staff is so incredibly nice and patient.</p>
+        <div class="rvr"><div class="rva">L</div><div><div class="rvn">learnfrenchwithme</div><div class="rvl">Google Review</div></div></div>
+        <a class="ml" href="https://maps.app.goo.gl/yRiZZxNyxeVPNYdc6" target="_blank">Read full review →</a>
+      </div>
+
+      <div class="rc rv" style="transition-delay:.35s">
+        <div class="stars">★★★★★</div>
+        <p class="rt">I would come back here anytime! We were greeted with friendly smiles. Even a small mix-up with our order was resolved with warmth and good humour. Wonderful experience.</p>
+        <div class="rvr"><div class="rva">H</div><div><div class="rvn">Hannah Kreidl</div><div class="rvl">Google Review</div></div></div>
+        <a class="ml" href="https://g.co/kgs/cCRbLTr" target="_blank">Read full review →</a>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:36px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+      <a href="https://search.google.com/local/reviews?placeid=ChIJC2dqcwWrNTERxUeaIoGo42I" target="_blank" class="btn btn-gold">Read All Google Reviews</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJC2dqcwWrNTERxUeaIoGo42I" target="_blank" class="btn" style="background:var(--gold-lt);color:var(--gold-dk);">Write a Review ✏️</a>
+    </div>
+  </div>
+</section>
+
+<!-- REFERRAL -->
+<!--
+  IMPORTANT: Nhật Anh is NOT the restaurant owner.
+  He is a LOCAL REFERRAL AGENT who introduces guests and earns commission.
+  Restaurant line: +84 964 375 588
+  Nhật Anh's personal contacts: WA +84 33 909 6764 | FB: nhat.anh.447049 | IG: na011427
+-->
+<section id="referral" class="section section-alt">
+  <div class="container">
+    <div class="rbox rv">
+      <div>
+        <div class="tag" style="color:var(--saffron);">✦ Book Smart</div>
+        <h2 class="title">Get the Best Experience — Book Through Nhật Anh</h2>
+        <p class="subtitle">Nhật Anh is a trusted local guide who personally introduces guests to Tết Restaurant. Message him on WhatsApp before your visit for a personalised recommendation, the best table, and potential referral deals.</p>
+        <div class="acard">
+          <div class="aav">NA</div>
+          <div>
+            <div class="an">Nhật Anh</div>
+            <div class="al">Local Referral Agent · Hanoi Old Quarter</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;">
+          <a href="https://wa.me/84339096764" target="_blank" class="btn btn-wa">📲 WhatsApp Nhật Anh</a>
+          <a href="https://www.facebook.com/nhat.anh.447049/" target="_blank" class="btn" style="background:rgba(255,255,255,.14);color:#fff;">📘 Facebook</a>
+          <a href="https://www.instagram.com/na011427/" target="_blank" class="btn" style="background:rgba(255,255,255,.14);color:#fff;">📸 Instagram</a>
+        </div>
+      </div>
+      <div class="rsteps">
+        <div class="rs"><div class="rn">1</div><div><h4>Message Nhật Anh on WhatsApp</h4><p>Tell him your preferred date, time, and party size. He responds quickly.</p></div></div>
+        <div class="rs"><div class="rn">2</div><div><h4>Get Personalised Suggestions</h4><p>He'll recommend the best dishes for your group and flag any daily specials.</p></div></div>
+        <div class="rs"><div class="rn">3</div><div><h4>Arrive &amp; Enjoy</h4><p>Show the WhatsApp chat at the counter to confirm you came through his referral.</p></div></div>
+        <div class="rs"><div class="rn">4</div><div><h4>Spread the Word</h4><p>Loved it? Share Nhật Anh's contact — every referral supports him.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="rv">
+      <div class="tag">✦ Visit Us</div>
+      <h2 class="title">Find Tết Restaurant</h2>
+      <p class="subtitle">29 Lan Ong, Hoàn Kiếm, Hanoi — right in the Old Quarter.</p>
+    </div>
+    <div class="cgrid">
+
+      <div class="ccard rv">
+        <h3>🏮 Restaurant Contacts</h3>
+        <div class="clinks">
+          <a href="tel:+84964375588" class="cl">
+            <div class="ci cph">📞</div>
+            <div><strong>Hotline</strong><span>+84 964 375 588 — call or text</span></div>
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=84964375588&text=Hello%2C%20I%20would%20like%20to%20reserve%20a%20table%20at%20Tet%20Restaurant." target="_blank" class="cl">
+            <div class="ci cwa">📲</div>
+            <div><strong>WhatsApp (Restaurant)</strong><span>Tap to send a reservation request</span></div>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61567052012950" target="_blank" class="cl">
+            <div class="ci cfb">📘</div>
+            <div><strong>Facebook Page</strong><span>Tết Restaurant Official Page</span></div>
+          </a>
+          <a href="https://maps.app.goo.gl/KT3t5w8QtZJRHMMw7" target="_blank" class="cl">
+            <div class="ci cmap">📍</div>
+            <div><strong>Google Maps</strong><span>29 Lan Ong, Hoàn Kiếm, Hanoi</span></div>
+          </a>
+        </div>
+        <!-- Form sends via WhatsApp -->
+        <form class="cform" onsubmit="sf(event)">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="text" name="phone" placeholder="Your WhatsApp / phone number">
+          <textarea name="msg" placeholder="Questions, reservation details…" required></textarea>
+          <button type="submit" class="btn btn-gold">Send via WhatsApp 📲</button>
+        </form>
+        <p id="fmsg" style="display:none;font-size:.83rem;margin-top:8px;"></p>
+      </div>
+
+      <div class="ccard rv" style="transition-delay:.1s">
+        <h3>🗺 Location &amp; Hours</h3>
+        <div class="mbw">
+          <div style="font-size:3rem;">📍</div>
+          <p><strong>29 Lan Ong</strong>, Hàng Bồ Ward<br>Hoàn Kiếm District, Hanoi Old Quarter</p>
+          <a href="https://maps.app.goo.gl/KT3t5w8QtZJRHMMw7" target="_blank" class="btn btn-gold">Open in Google Maps</a>
+          <!--
+            EMBED A LIVE MAP:
+            1. Open https://maps.app.goo.gl/KT3t5w8QtZJRHMMw7 in your browser
+            2. Click Share → Embed a map → Copy the <iframe> HTML
+            3. Delete the entire <div class="mbw">…</div> above
+            4. Paste the <iframe> here and add:
+               style="border:0;border-radius:20px;width:100%;height:280px;"
+          -->
+        </div>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+          <h4 style="font-size:.9rem;font-weight:700;margin-bottom:14px;">🕗 Opening Hours</h4>
+          <table class="htbl">
+            <tr><td>Every day</td><td>08:00 AM – 11:00 PM</td></tr>
+            <tr><td>Public holidays</td><td>08:00 AM – 11:00 PM</td></tr>
+          </table>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:8px;">Last orders at 10:30 PM.</p>
+        </div>
+        <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
+          <h4 style="font-size:.9rem;font-weight:700;margin-bottom:10px;">🙋 Book via Nhật Anh</h4>
+          <p style="font-size:.84rem;color:var(--soft);margin-bottom:12px;">For personalised service, contact local referral agent <strong>Nhật Anh</strong>:</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="https://wa.me/84339096764" target="_blank" class="btn btn-wa" style="padding:9px 16px;font-size:.82rem;">📲 +84 33 909 6764</a>
+            <a href="https://www.instagram.com/na011427/" target="_blank" class="btn" style="background:var(--gold-lt);color:var(--gold-dk);padding:9px 16px;font-size:.82rem;">📸 @na011427</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="flogo"><em>Tết</em> Restaurant</div>
+    <p class="ftag">Vietnamese Cuisine &amp; Vegetarian Food · 29 Lan Ong, Hanoi Old Quarter</p>
+    <div class="fsocs">
+      <a href="tel:+84964375588" class="fsoc">📞 +84 964 375 588</a>
+      <a href="https://api.whatsapp.com/send?phone=84964375588" target="_blank" class="fsoc">📲 WhatsApp</a>
+      <a href="https://maps.app.goo.gl/KT3t5w8QtZJRHMMw7" target="_blank" class="fsoc">📍 Google Maps</a>
+      <a href="https://www.facebook.com/profile.php?id=61567052012950" target="_blank" class="fsoc">📘 Facebook</a>
+      <a href="https://tetrestaurants.com" target="_blank" class="fsoc">🌐 Official Website</a>
+    </div>
+    <hr class="fdiv">
+    <p class="fcopy">
+      Referral page built by Nhật Anh · Tết Restaurant © 2025<br>
+      <span style="font-size:.71rem;">Official website: <a href="https://tetrestaurants.com" style="color:var(--saffron);">tetrestaurants.com</a></span>
+    </p>
+  </div>
+</footer>
+
+<script>
+  /* Mobile nav */
+  document.getElementById('nt').addEventListener('click',()=>document.getElementById('mn').classList.toggle('open'));
+  function cn(){document.getElementById('mn').classList.remove('open')}
+
+  /* Nav shadow on scroll */
+  window.addEventListener('scroll',()=>{
+    document.getElementById('topnav').style.boxShadow=window.scrollY>10?'0 2px 20px rgba(61,32,8,.13)':'none';
+  });
+
+  /* Menu tab filter */
+  document.querySelectorAll('.cbn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.cbn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const c=btn.dataset.c;
+      document.querySelectorAll('.mc').forEach(card=>{
+        card.style.display=(c==='all'||card.dataset.c===c)?'':'none';
+      });
+    });
+  });
+
+  /* Scroll reveal */
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+  },{threshold:.10});
+  document.querySelectorAll('.rv').forEach(r=>obs.observe(r));
+
+  /* Contact form → WhatsApp to restaurant */
+  function sf(e){
+    e.preventDefault();
+    const fd=new FormData(e.target);
+    const t=encodeURIComponent(`Hi! I'm ${fd.get('name')} (${fd.get('phone')||'no number'}).\n${fd.get('msg')}`);
+    window.open(`https://wa.me/84964375588?text=${t}`,'_blank');
+    e.target.reset();
+    const m=document.getElementById('fmsg');
+    m.style.display='block';m.style.color='green';
+    m.textContent='✅ Opening WhatsApp with your message…';
+    setTimeout(()=>m.style.display='none',4000);
+  }
+</script>
+</body>
+</html>
